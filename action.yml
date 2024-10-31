@@ -1,0 +1,5 @@
+name: 'badger'
+description: 'Github Actions application used to award badges to users passing Gatorgrade checks.'
+runs:
+  using: 'node20'
+  main: 'dist/index.js'

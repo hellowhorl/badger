@@ -1,0 +1,19 @@
+{
+  "name": "badger",
+  "version": "0.1.0",
+  "description": "Github Action used to award badges to users passing Gatorgrade checks.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hellowhorl/badger.git"
+  },
+  "author": "Douglas Luman, Danny Bekele",
+  "license": "CC0-1.0",
+  "bugs": {
+    "url": "https://github.com/hellowhorl/badger/issues"
+  },
+  "homepage": "https://github.com/hellowhorl/badger#readme"
+}

@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/hellowhorl/badger/issues"
   },
-  "homepage": "https://github.com/hellowhorl/badger#readme"
+  "homepage": "https://github.com/hellowhorl/badger#readme",
+  "dependencies": {
+    "@actions/core": "^1.11.1",
+    "@actions/github": "^6.0.0"
+  }
 }

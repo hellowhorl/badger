@@ -1,5 +1,13 @@
-name: 'badger'
-description: 'Github Actions application used to award badges to users passing Gatorgrade checks.'
+name: 'Badger'
+description: 'Processes gatorgrade achievements and awards badges'
+inputs:
+  gatorgrade-file:
+    description: 'Path to the .gatorgrade file'
+    required: true
+    default: '.gatorgrade'
+outputs:
+  badges:
+    description: 'Generated badges data'
 runs:
-  using: 'node20'
+  using: 'node16'
   main: 'dist/index.js'

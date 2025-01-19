@@ -20,6 +20,7 @@
     "@actions/core": "^1.11.1",
     "@actions/github": "^6.0.0",
     "async": "^3.2.6",
+    "axios": "^1.7.9",
     "fs": "^0.0.1-security",
     "js-yaml": "^4.1.0"
   }

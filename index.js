@@ -6,15 +6,27 @@ const path = require('path');
 const util = require('util');
 const async = require('async');
 const yaml = require('js-yaml');
+const axios = require('axios');
 
 const octokit = github.getOctokit(
   process.env.GITHUB_TOKEN
 );
 
+const owner = github.context.payload.repository.owner.login;
+
 const makeAPICall = (checks) => {
-
-  
-
+  // POST request to report results
+  axios.post(
+    `${core.getInput('api_host')}/v1/badger/`,
+    {
+      owner: owner,
+      checks: checks
+    }
+  ).then(
+    (response) => {
+      return console.log(response);
+    }
+  );
 }
 
 const run = () => {

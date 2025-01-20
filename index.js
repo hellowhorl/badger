@@ -14,19 +14,42 @@ const octokit = github.getOctokit(
 
 const owner = github.context.payload.repository.owner.login;
 
-const makeAPICall = (checks) => {
-  // POST request to report results
-  axios.post(
-    `${core.getInput('api_host')}/v1/badger/`,
+const badgeDataExists = async (check) => {
+
+  // POST to badge data search
+  let data = await axios.post(
+    `${core.getInput('api_host')}/v1/badger/search`,
     {
-      owner: owner,
-      checks: checks
-    }
-  ).then(
-    (response) => {
-      return console.log(response);
+      user: owner
     }
   );
+
+  return Object.keys(data).length > 0;
+
+}
+
+const addBadgeData = async (check) => {
+
+  // POST request to report results
+  await axios.post(
+    `${core.getInput('api_host')}/v1/badger/`,
+    {
+      user: owner,
+      check: check
+    }
+  );
+
+}
+
+const updateBadgeData = async (check) => {
+
+  // PATCH request to update badging data
+  await axios.path(
+    `${core.getInput('api_host')}/v1/badger/`,
+    {
+    }
+  );
+
 }
 
 const run = () => {
@@ -45,6 +68,11 @@ const run = () => {
       (check) => check.badges
     )
   );
+
+  // Discover whether user already has a badge
+  for (let check of checks) {
+    if
+  }
 
 }
 

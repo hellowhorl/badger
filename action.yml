@@ -1,5 +1,14 @@
 name: 'badger'
 description: 'Github Actions application used to award badges to users passing Gatorgrade checks.'
+inputs:
+    api-host:
+        description: API URL running a valid Badger endpoint
+        required: true
+        default: 'https://dev.chompe.rs'
+    grader-report:
+        description: Name of Gatorgrader output file to read and parse
+        required: true
+        default: 'gatorgrade_summary.json'
 runs:
   using: 'node20'
   main: 'dist/index.js'

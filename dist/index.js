@@ -49174,13 +49174,14 @@ const run = () => {
   ).map(
     (check) => check.badges
   );
+  console.log(badges);
 
   // Discover whether user already has a badge
-  for(let badge of badges) {
+  /*for(let badge of badges) {
     if(isBadgeOwned(badge)) {
         
     }
-  }
+  }*/
 }
 
 run();

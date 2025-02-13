@@ -49178,12 +49178,14 @@ const run = () => {
   );
   console.log(github.context.payload);
   badges = {
-    repository_name: repository,
+    repository_name: github.context.payload.repository.name,
     username: owner,
-    workflow_run_id: "",
-    commit_hash:"",
-    grading_output: badges,
+    workflow_run_id: process.env.GITHUB_RUN_ID,
+    commit_hash: github.context.payload.commits[0].id,
+    grading_output: badges
   }
+
+  console.log(badges);
 
 }
 

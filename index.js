@@ -21,7 +21,7 @@ const isBadgeOwned = async (check) => {
     `${core.getInput('api_host')}/v1/badger/search`,
     {
       username: owner,
-      badge: 
+      //badge: 
     }
   );
 
@@ -73,7 +73,7 @@ const run = () => {
   // Discover whether user already has a badge
   for(let badge of badges) {
     if(isBadgeOwned(badge)) {
-    
+        
     }
   }
 }

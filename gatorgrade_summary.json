@@ -1,0 +1,95 @@
+{
+    "amount_correct": 3,
+    "percentage_score": 50,
+    "report_time": "2025-01-18 22:06:28",
+    "checks": [
+        {
+            "description": "No TODO markers left in README.md",
+            "category": "Documentation",
+            "check": "MatchFileFragment",
+            "options": {
+                "fragment": "TODO",
+                "count": 0,
+                "exact": true
+            },
+            "status": false,
+            "path": "./README.md",
+            "diagnostic": "Found 5 fragment(s) in the README.md or the output while expecting exactly 0"
+        },
+        {
+            "description": "We need better headings",
+            "category": "Documentation",
+            "check": "CountMarkdownTags",
+            "options": {
+                "tag": "heading",
+                "count": 2,
+                "exact": false
+            },
+            "status": true,
+            "path": "./README.md"
+        },
+        {
+            "description": "Have at least 3 TODOs",
+            "category": "Documentation",
+            "check": "MatchFileFragment",
+            "options": {
+                "fragment": "TODO",
+                "count": 3,
+                "exact": false
+            },
+            "status": true,
+            "path": "./README.md"
+        },
+        {
+            "description": "Make at least one commit, you moron",
+            "category": "git",
+            "check": "CountCommits",
+            "badges": [
+                {
+                    "name": "Committed",
+                    "step": 1
+                },
+                {
+                    "name": "Overly committed",
+                    "step": 1
+                }
+            ],
+            "options": {
+                "count": 1
+            },
+            "status": true
+        },
+        {
+            "description": "Make at least 10 commits, you moron",
+            "category": "git",
+            "check": "CountCommits",
+            "badges": [
+                {
+                    "name": "Overly committed",
+                    "step": 2
+                }
+            ],
+            "options": {
+                "count": 10
+            },
+            "status": false,
+            "diagnostic": "Found 1 commit(s) in the Git repository"
+        },
+        {
+            "description": "Make at least 15 commits, you moron",
+            "category": "git",
+            "check": "CountCommits",
+            "badges": [
+                {
+                    "name": "Overly committed",
+                    "step": 3
+                }
+            ],
+            "options": {
+                "count": 15
+            },
+            "status": false,
+            "diagnostic": "Found 1 commit(s) in the Git repository"
+        }
+    ]
+}

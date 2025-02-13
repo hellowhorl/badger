@@ -68,15 +68,18 @@ const run = () => {
     (check) => check.badges && check.status === true
   ).map(
     (check) => check.badges
+  ).reduce(
+    (badge)=>{badge}
   );
-  console.log(badges);
+  console.log(github.context.payload);
+  badges = {
+    repository_name: repository,
+    username: owner,
+    workflow_run_id: "",
+    commit_hash:"",
+    grading_output: badges,
+  }
 
-  // Discover whether user already has a badge
-  /*for(let badge of badges) {
-    if(isBadgeOwned(badge)) {
-        
-    }
-  }*/
 }
 
 run();

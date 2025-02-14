@@ -49119,40 +49119,13 @@ const octokit = github.getOctokit(
 
 const owner = github.context.payload.repository.owner.login;
 
-const isBadgeOwned = async (check) => {
+const postBadgeData = async (badges) => {
 
   // POST to badge data search
   let data = await axios.post(
-    `${core.getInput('api_host')}/v1/badger/search`,
+    `${core.getInput('api-host')}/v1/badger/process`,
     {
-      username: owner,
-      //badge: 
-    }
-  );
-
-  return Object.keys(data).length > 0;
-
-}
-
-const addBadgeData = async (check) => {
-
-  // POST request to report results
-  await axios.post(
-    `${core.getInput('api_host')}/v1/badger/`,
-    {
-      user: owner,
-      check: check
-    }
-  );
-
-}
-
-const updateBadgeData = async (check) => {
-
-  // PATCH request to update badging data
-  await axios.path(
-    `${core.getInput('api_host')}/v1/badger/${owner}`,
-    {
+        data: badges
     }
   );
 
@@ -49176,7 +49149,7 @@ const run = () => {
   ).reduce(
     (badge)=>{badge}
   );
-  console.log(github.context.payload);
+
   badges = {
     repository_name: github.context.payload.repository.name,
     username: owner,
@@ -49185,7 +49158,7 @@ const run = () => {
     grading_output: badges
   }
 
-  console.log(badges);
+  postBadgeData(badges);
 
 }
 

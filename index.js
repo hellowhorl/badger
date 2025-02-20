@@ -18,7 +18,7 @@ const postBadgeData = async (badges) => {
 
   // POST to badge data search
   let data = await axios.post(
-    `${core.getInput('api-host')}/v1/badger/process`,
+    `${core.getInput('api-host')}/v1/badger/process/`,
     {
         data: badges
     }

@@ -49131,7 +49131,16 @@ const postBadgeData = async (badges) => {
 
 }
 
-const run = () => {
+const getLatestAuthor = async () => {
+  let info = await octokit.rest.repos.listCommits({
+    owner: owner,
+    repo: github.context.payload.repository.name,
+    sha: process.env.GITHUB_REF_NAME
+  });
+  return info.data[0].author.login;
+}
+
+const run = async () => {
 
   // Collect results from gatorgrader run
   let outcome = JSON.parse(
@@ -49152,7 +49161,7 @@ const run = () => {
 
   badges = {
     repository_name: github.context.payload.repository.name,
-    username: owner,
+    username: await getLatestAuthor(),
     workflow_run_id: process.env.GITHUB_RUN_ID,
     commit_hash: github.context.payload.commits[0].id,
     grading_output: badges
